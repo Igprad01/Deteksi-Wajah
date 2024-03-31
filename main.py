@@ -12,20 +12,22 @@ def settingCamera(kamera):
 
 def box(kamera):
     for x,y,w,h in settingCamera(kamera):
-        cv2.rectangle(kamera ,(x,y),(x+w,y+h),(255,255,0),2)\
+        cv2.rectangle(kamera ,(x,y),(x+w,y+h),(255,255,0),2)
+        
+        key = cv2.waitKey(1) & 0xFF
+        if key == 27 :
+            break
+        
+        cam.release()
+        cv2.destroyAllWindows()
+
             
 def main():
     while True:
-        kamera = cam.read()
+        _, kamera = cam.read()
         box(kamera)
         cv2.imshow("box camera", kamera)
-        
-        if cv2.waitKey(1) & 0xff == ord('ESC'):
-            cv2.release()
-            cv2.destroyAllWindows()
-            exit()
-        else:
-            break
+    
         
 if __name__ == "__main__": 
     main()
