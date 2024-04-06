@@ -11,7 +11,7 @@ def settingCamera(kamera):
 
 def box(kamera):
     for x ,y,w,h in settingCamera(kamera):
-        cv2.rectangle(kamera ,(x,y),(x+w , y+h),(236,236,83),5)
+        cv2.rectangle(kamera ,(x,y),(x+w , y+h),(255,0,0),2)
         
 def main():
     while True:
